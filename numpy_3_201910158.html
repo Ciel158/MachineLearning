@@ -1,0 +1,24 @@
+import numpy as np #<br>
+a = np.zeros((3,4)) #1<br>
+z=0
+for i in range(len(a)) :
+    for j in range(len(a[i])):
+        z+=1
+        a[i,j] = z
+#2 <br>
+print(a[1,2]) #3<br>
+print(a[1:2, :]) #4<br>
+print(a[:,1:3]) #5<br>
+print(a[a<=6]) #6<br>
+np.random.seed(7) 
+b=np.random.random((3,4)) #7<br>
+print(b) #7<br>
+c=a*b
+print(c) #8<br>
+d=b.T
+print(d) #9<br>
+print(a.shape)
+print(d.shape) #10<br>
+e=np.dot(a, d)
+print(e) #11<br>
+print(np.sum(e, axis=0)) #12<br>
