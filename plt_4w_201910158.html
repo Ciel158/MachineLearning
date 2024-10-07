@@ -1,0 +1,77 @@
+import matplotlib.pyplot as plt
+%matplotlib inline 
+from matplotlib import font_manager, rc
+font_name = font_manager.FontProperties(fname="C:\\Windows\\Fonts\\HYBDAL.TTF").get_name()  
+rc('font', family=font_name) 			
+import matplotlib as mpl
+mpl.rcParams['axes.unicode_minus'] = False
+import numpy as np
+from math import log
+#<br><br>
+
+#1
+x = np.arange(-10, 10., 0.1)
+plt.plot(x, x**3+(x**2)*4+x*4+2, 'r--')
+plt.title('3차 함수 그래프')
+plt.xlabel('x') 
+plt.ylabel('y') 
+plt.show()
+#<br><br>
+
+#2 
+blood = ['A', 'B', 'O', 'AB']
+counts = [7, 10, 5, 3]
+
+sorted_w = reversed(sorted(zip(blood, counts), key=lambda kv: kv[1]))
+n, w = zip(*sorted_w)
+plt.bar(n, w, color='green')
+plt.show()
+#<br><br>
+
+#3
+a = np.array([ 74. ,  85.9,  69.9,  76.9,  69.3, 114.4,  53. ,  97.7,  77.6,
+               64.6,  88.1, 117.2,  63.2,  84.8,  98.4,  95.2,  80.9, 105.6,
+               60.1,  88.4,  84.6, 100.7, 108. ,  79.8,  81.9,  90.3,  71.7,
+               44.8,  91.3,  88.4,  74.3,  77.8,  83.9,  87.3, 114.7,  97.5,
+               72.5,  74.8,  71.9,  70.7,  77. ,  78.4,  74.8,  82. ,  71.8,
+               70. ,  76.5,  90.6,  76.2,  90.2,  69.5,  69.7,  78. , 103.6,
+               76.3,  78.5, 104.2, 100.7,  93.5,  50.6,  74.4,  87.3,  93.1,
+               80.9,  77.1,  52.9,  85.5,  93.6,  89.7,  75.2,  78.8,  96.6,
+               83.8,  84.3,  91.4, 104.9,  87.3,  92.3,  65.2,  76.8,  98.9,
+               80.8,  68.5,  61.4,  91.4,  56.2,  89.2,  70. ,  72.7,  71.5,
+               79.1,  85.1, 105.6,  73.1, 122.2,  73.7,  88.2,  83.7, 101.2,
+               68.6])
+b = np.array([135. , 115.1, 114.3, 107.1, 126.2, 119.5, 101.1, 116.9, 117.8,
+               123.8, 123. , 121.9, 116.9, 123.3, 128.3, 131. , 125.3, 123.7,
+               133.1, 124. , 114.4, 111.9, 141.8, 125.4, 121.8, 137.1, 119.5,
+               126.2, 116.6, 122.5, 146.4, 110.1, 131.8, 124. , 123.8, 107.3,
+               119.4, 118.1, 118.1, 123.9, 134.5, 133.5, 135.5, 103.7, 114. ,
+               120.8, 131.1, 115.8, 128.4, 116.6, 128.9, 101.6, 137.8, 119.4,
+               117. ,  98. , 110.5, 120.2, 129.5, 111.8, 130.5, 110.2, 121.9,
+               115.5, 126.8, 124.2, 119.9, 136.4, 138.5, 127.7, 115.6, 108.9,
+               114.9, 107.3, 118. ,  98.1, 131.5, 128.5, 120.4, 118.8,  99. ,
+               120.2, 119.5, 102.6, 114.4, 119.4, 123.7, 112.5, 104.2, 122. ,
+               128.7, 124.8, 106.5, 120.6, 133.4, 130.7, 128.7, 125.1, 108.7,
+               109.2])
+
+plt.hist(a, bins=10, facecolor='red', alpha=0.4)
+plt.hist(b, bins=10, facecolor='blue', alpha=0.4)
+plt.legend(['a', 'b']) 
+#<br><br>
+
+#4 
+import seaborn as sns
+g = sns.kdeplot(a)
+g = sns.kdeplot(b)
+#<br><br>
+
+#5
+x = np.arange(0.1, 5.0, 0.1)
+x1 = np.arange(0.0, 10.0, 0.2)
+f, axarr = plt.subplots(2, 2, sharex='col', sharey='row', figsize=(10, 6))
+
+axarr[0, 0].plot(x, np.log(x))
+axarr[0, 1].plot(x, np.sqrt(x))
+axarr[1, 0].plot(x, x)
+axarr[1, 1].plot(x, x**2)
+plt.show()
